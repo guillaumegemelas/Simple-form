@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import StepTwo from "./Components/StepTwo";
+// import StepTwo from "./Components/StepTwo";
 
 function App() {
   //mes states dédiées au contenu de mes inputs
@@ -14,95 +14,101 @@ function App() {
 
   return (
     <div className="App">
-      <section className={!submit || errorMessage ? "" : "hidden"}>
-        <h1>Create account</h1>
-        {/* renvoie à la classe visible si submit n'existe pas ou errorMessage existe et caché si
-       submit existe et erroMessage n'existe pas  */}
-        <form
-          className="form"
-          //onSubmit sera déclenchée lors du clic sur un bouton ou un input de type Submit
-          onSubmit={(event) => {
-            //empeche le rafriassissement de la page par défaut
-            event.preventDefault();
+      {/* je crée une ternaire qui dit si submit est false (n'existe pas) ou message error existe,
+      j'affiche mon form , SINON j'affiche mon step2 (result)*/}
 
-            if (password !== passwordConf) {
-              setErrorMessage("not the same password");
-              alert("Vos deux mots de passe ne sont pas identiques");
-            } else {
-              setErrorMessage("");
-            }
-          }}
-        >
-          <div className="tab">
-            <input
-              value={name}
-              type="text"
-              placeholder="name"
-              onChange={(event) => setName(event.target.value)}
-            />
+      {!submit || errorMessage ? (
+        <section className="formulaire">
+          <h1>Create account</h1>
 
-            <input
-              value={email}
-              type="email"
-              placeholder="email"
-              onChange={(event) => setEmail(event.target.value)}
-            />
+          <form
+            className="form"
+            //onSubmit sera déclenchée lors du clic sur un bouton ou un input de type Submit
+            onSubmit={(event) => {
+              //empeche le rafriassissement de la page par défaut
+              event.preventDefault();
 
-            <input
-              value={password}
-              type="password"
-              placeholder="password"
-              onChange={(event) => setPassword(event.target.value)}
-            />
+              if (password !== passwordConf) {
+                setErrorMessage("not the same password");
+                alert("Vos deux mots de passe ne sont pas identiques");
+              } else {
+                setErrorMessage("");
+              }
+            }}
+          >
+            <div className="tab">
+              <input
+                value={name}
+                type="text"
+                placeholder="name"
+                onChange={(event) => setName(event.target.value)}
+              />
 
-            <input
-              value={passwordConf}
-              type="password"
-              placeholder="password"
-              onChange={(event) => setPasswordConf(event.target.value)}
-            />
+              <input
+                value={email}
+                type="email"
+                placeholder="email"
+                onChange={(event) => setEmail(event.target.value)}
+              />
 
-            {/* bouton pour déclencher le submit du formulaire */}
+              <input
+                value={password}
+                type="password"
+                placeholder="password"
+                onChange={(event) => setPassword(event.target.value)}
+              />
+
+              <input
+                value={passwordConf}
+                type="password"
+                placeholder="password"
+                onChange={(event) => setPasswordConf(event.target.value)}
+              />
+
+              {/* bouton pour déclencher le submit du formulaire */}
+              <button
+                className="register"
+                type="submit"
+                onClick={() => {
+                  setSubmit("OK");
+                }}
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </section>
+      ) : (
+        // <StepTwo
+        //   name={name}
+        //   email={email}
+        //   password={password}
+        //   setSubmit={setSubmit}
+        // />
+
+        // sinon deuxième constion de la ternaire, si submit est true et message erro n'existe pas, j'affiche
+        //mon result
+
+        <section className="result">
+          <div>
+            <h1>Results</h1>
+            <div className="newBox">
+              <p>Name : {name}</p>
+              <p>Email : {email}</p>
+              <p>Password : {password}</p>
+            </div>
+
             <button
               className="register"
               type="submit"
               onClick={() => {
-                setSubmit("OK");
+                setSubmit("");
               }}
             >
-              Register
+              Edit your information
             </button>
           </div>
-        </form>
-      </section>
-
-      {submit && !errorMessage && (
-        <StepTwo
-          name={name}
-          email={email}
-          password={password}
-          setSubmit={setSubmit}
-        />
-        // <section className="result">
-        //   <div>
-        //     <h1>Results</h1>
-        //     <div className="newBox">
-        //       <p>Name : {name}</p>
-        //       <p>Email : {email}</p>
-        //       <p>Password : {password}</p>
-        //     </div>
-
-        //     <button
-        //       className="register"
-        //       type="submit"
-        //       onClick={() => {
-        //         setSubmit("");
-        //       }}
-        //     >
-        //       Edit your information
-        //     </button>
-        //   </div>
-        // </section>
+        </section>
       )}
       <footer>
         <p>
