@@ -1,0 +1,64 @@
+.App {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 150px;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.tab {
+  display: flex;
+  height: 500px;
+  width: 300px;
+  /* background-color: pink; */
+  flex-direction: column;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+.tab input {
+  height: 50px;
+  padding-left: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.register {
+  font-size: 15px;
+  color: white;
+  background-color: #5c47d2;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+footer span {
+  font-weight: bold;
+}
+
+.newBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+  padding-left: 10px;
+  width: 300px;
+  height: 120px;
+  background-color: rgb(234, 232, 232);
+  border-radius: 5px;
+}
