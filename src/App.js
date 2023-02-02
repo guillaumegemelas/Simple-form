@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-// import StepTwo from "./Components/StepTwo";
+import StepTwo from "./Components/StepTwo";
 
 function App() {
   //mes states dédiées au contenu de mes inputs
@@ -79,36 +79,14 @@ function App() {
           </form>
         </section>
       ) : (
-        // <StepTwo
-        //   name={name}
-        //   email={email}
-        //   password={password}
-        //   setSubmit={setSubmit}
-        // />
-
         // sinon deuxième constion de la ternaire, si submit est true et message erro n'existe pas, j'affiche
         //mon result
-
-        <section className="result">
-          <div>
-            <h1>Results</h1>
-            <div className="newBox">
-              <p>Name : {name}</p>
-              <p>Email : {email}</p>
-              <p>Password : {password}</p>
-            </div>
-
-            <button
-              className="register"
-              type="submit"
-              onClick={() => {
-                setSubmit("");
-              }}
-            >
-              Edit your information
-            </button>
-          </div>
-        </section>
+        <StepTwo
+          name={name}
+          email={email}
+          password={password}
+          setSubmit={setSubmit}
+        />
       )}
       <footer>
         <p>
