@@ -36,6 +36,7 @@ h1 {
   color: white;
   background-color: #5c47d2;
   height: 50px;
+  width: 310px;
   border-radius: 5px;
   border: 1px solid grey;
 }
@@ -61,4 +62,15 @@ footer span {
   height: 120px;
   background-color: rgb(234, 232, 232);
   border-radius: 5px;
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.hidden {
+  display: none;
+}
+
+.result h1 {
+  display: flex;
+  justify-content: center;
 }
