@@ -10,6 +10,8 @@
 }
 
 h1 {
+  display: flex;
+  justify-content: center;
   font-size: 30px;
   font-weight: bold;
 }
@@ -36,7 +38,7 @@ h1 {
   color: white;
   background-color: #5c47d2;
   height: 50px;
-  width: 310px;
+  width: 300px;
   border-radius: 5px;
   border: 1px solid grey;
 }

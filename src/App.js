@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import StepTwo from "./Components/StepTwo";
 
 function App() {
   //mes states dédiées au contenu de mes inputs
@@ -10,7 +11,6 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [submit, setSubmit] = useState("");
   //state qui gère le contenu et l'affichage de mon étape 2
-  const [newBox, setNewBox] = useState("");
 
   return (
     <div className="App">
@@ -26,9 +26,10 @@ function App() {
             event.preventDefault();
 
             if (password !== passwordConf) {
-              setErrorMessage("");
+              setErrorMessage("not the same password");
               alert("Vos deux mots de passe ne sont pas identiques");
             } else {
+              setErrorMessage("");
             }
           }}
         >
@@ -76,26 +77,32 @@ function App() {
       </section>
 
       {submit && !errorMessage && (
-        <section className="result">
-          <div>
-            <h1>Results</h1>
-            <div className="newBox">
-              <p>Name : {name}</p>
-              <p>Email : {email}</p>
-              <p>Password : {password}</p>
-            </div>
+        <StepTwo
+          name={name}
+          email={email}
+          password={password}
+          setSubmit={setSubmit}
+        />
+        // <section className="result">
+        //   <div>
+        //     <h1>Results</h1>
+        //     <div className="newBox">
+        //       <p>Name : {name}</p>
+        //       <p>Email : {email}</p>
+        //       <p>Password : {password}</p>
+        //     </div>
 
-            <button
-              className="register"
-              type="submit"
-              onClick={() => {
-                setSubmit("");
-              }}
-            >
-              Edit your information
-            </button>
-          </div>
-        </section>
+        //     <button
+        //       className="register"
+        //       type="submit"
+        //       onClick={() => {
+        //         setSubmit("");
+        //       }}
+        //     >
+        //       Edit your information
+        //     </button>
+        //   </div>
+        // </section>
       )}
       <footer>
         <p>
